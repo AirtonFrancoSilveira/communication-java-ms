@@ -18,10 +18,10 @@ public class UserService {
     }
 
     @Transactional
-    public UserModel save(UserModel userModel) {
-
+    public UserModel save(UserModel userModel){
         userModel = userRepository.save(userModel);
         userProducer.publishMessageEmail(userModel);
         return userModel;
     }
+
 }

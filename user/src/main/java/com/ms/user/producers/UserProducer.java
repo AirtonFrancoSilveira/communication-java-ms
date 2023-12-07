@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UserProducer {
+
     final RabbitTemplate rabbitTemplate;
 
     public UserProducer(RabbitTemplate rabbitTemplate) {
@@ -19,11 +20,12 @@ public class UserProducer {
 
     public void publishMessageEmail(UserModel userModel) {
         var emailDto = new EmailDto();
-        emailDto.setUserId(userModel.getUserID());
+        emailDto.setUserId(userModel.getUserId());
         emailDto.setEmailTo(userModel.getEmail());
-        emailDto.setSubject("Cadastro realizado com Sucesso");
-        emailDto.setText(userModel.getName() + ", seja bem vindo(a)! \nAgradecemos o seu cadastro.");
+        emailDto.setSubject("Cadastro realizado com sucesso!");
+        emailDto.setText(userModel.getName() + ", seja bem vindo(a)! \nAgradecemos o seu cadastro, aproveite agora todos os recursos da nossa plataforma!");
 
         rabbitTemplate.convertAndSend("", routingKey, emailDto);
     }
+
 }

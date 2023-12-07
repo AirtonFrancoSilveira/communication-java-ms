@@ -4,6 +4,11 @@ import java.util.UUID;
 
 public class EmailDto {
 
+    private UUID userId;
+    private String emailTo;
+    private String subject;
+    private String text;
+
     public UUID getUserId() {
         return userId;
     }
@@ -35,9 +40,4 @@ public class EmailDto {
     public void setText(String text) {
         this.text = text;
     }
-
-    private UUID userId;
-    private String emailTo;
-    private String subject;
-    private String text;
 }

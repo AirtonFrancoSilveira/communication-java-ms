@@ -8,21 +8,20 @@ import java.util.UUID;
 @Entity
 @Table(name = "TB_USERS")
 public class UserModel implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID userID;
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private UUID userId;
     private String name;
     private String email;
 
-    public UUID getUserID() {
-        return userID;
+    public UUID getUserId() {
+        return userId;
     }
 
-    public void setUserID(UUID userID) {
-        this.userID = userID;
+    public void setUserId(UUID userId) {
+        this.userId = userId;
     }
 
     public String getName() {
